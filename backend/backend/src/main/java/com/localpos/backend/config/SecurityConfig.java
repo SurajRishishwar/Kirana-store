@@ -77,7 +77,7 @@ public class SecurityConfig {
                         .requestMatchers("/api/v1/credit/**").hasAnyRole("OWNER", "CASHIER")
 
                         // All authenticated users
-                        .requestMatchers("/api/v1/products/**").authenticated()
+                        .requestMatchers("/api/v1/products/**").permitAll()
                         .requestMatchers("/api/v1/dashboard/**").authenticated()
 
                         // All other requests must be authenticated
@@ -95,6 +95,9 @@ public class SecurityConfig {
         configuration.setAllowedOrigins(Arrays.asList(
                 "http://localhost:8080",
                 "http://localhost:5173",
+                "https://kiranastore-5ui3wi12q-suraj-sharmas-projects-bf753c9f.vercel.app/",
+                "https://kiranastore-git-main-suraj-sharmas-projects-bf753c9f.vercel.app",
+                "https://kiranastore-git-main-suraj-sharmas-projects-bf753c9f.vercel.app",
                 "http://localhost:3000"
         ));
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"));

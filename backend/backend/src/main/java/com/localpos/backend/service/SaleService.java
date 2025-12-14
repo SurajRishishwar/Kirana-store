@@ -17,6 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.Year;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -99,7 +100,12 @@ public class SaleService {
         }
 
         // 5. Create sale
-        String billNumber = billNumberGenerator.generateBillNumber();
+//        String billNumber = billNumberGenerator.generateBillNumber();
+
+        String billNumber =
+                "BILL-" + Year.now().getValue() + "-"
+                        + UUID.randomUUID().toString().substring(0, 8).toUpperCase();
+
 
         User currentUser = getCurrentUser();
 
